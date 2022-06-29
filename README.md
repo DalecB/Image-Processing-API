@@ -1,17 +1,21 @@
-##Installation
+## Installation
+```
 $ npm install
-
-##Test
+```
+## Test
+```
 $ npm run test
-
-##Running Sequence
+```
+## Running Sequence
+```
 $ npm run build
 $ npm run start
+```
 --> It should make you able to connect on localhost:3000
 
-##Emdpoints
-1. localhost:3000/image?filename=Yumi&width=500&height=500
+## Emdpoints
+1. localhost:3000/image?filename=Yumi&width=500&height=500  
 --> You can check transformed image on "thumb" folder
-2. localhost:3000/meta?filename=Yumi
+2. localhost:3000/meta?filename=Yumi  
 --> It should show you the metadata of image
 
