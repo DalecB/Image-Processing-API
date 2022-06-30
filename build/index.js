@@ -42,9 +42,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.app = void 0;
 var express_1 = __importDefault(require("express"));
 var getImage_1 = require("./utilities/getImage");
-// import { promises as fsPromises } from 'fs';
-// import { execPath } from 'process';
-var imagePath = '/Users/jaytheb/FSD/thumb/';
+var imagePath = '/Users/jaytheb/FSD/Image Process API/thumb/';
 var app = (0, express_1.default)();
 exports.app = app;
 var port = 3000;
@@ -63,32 +61,24 @@ app.get('/meta', function (req, res) { return __awaiter(void 0, void 0, void 0, 
     });
 }); });
 app.get('/image', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var width, height, name, url;
+    var width, height, name;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
                 width = parseInt(String(req.query.width));
                 height = parseInt(String(req.query.height));
                 name = String(req.query.filename);
-                url = String(req.query);
                 if (isNaN(width) || isNaN(height)) {
                     // todo return 404 or 500 or any else
                 }
-                if (!(url === "localhost:3000/image?filename=".concat(name, "&width=").concat(width, "&height=").concat(height))) return [3 /*break*/, 1];
-                return [3 /*break*/, 3];
-            case 1: return [4 /*yield*/, (0, getImage_1.resizeImage)(width, height, name)];
-            case 2:
+                return [4 /*yield*/, (0, getImage_1.resizeImage)(width, height, name)];
+            case 1:
                 _a.sent();
-                res.sendFile(imagePath + req.query.filename + '_thumb.png');
-                _a.label = 3;
-            case 3: return [2 /*return*/];
+                res.sendFile(imagePath + name + '_' + width + '_' + height + '.png');
+                return [2 /*return*/];
         }
     });
 }); });
-// app.get('/yumi', (req, res) => {
-// 	res.sendFile(imagePath);
-//   resizeImage();
-// })
 app.listen(port, function () {
     console.log("\n  ############################################\n    server started at http://localhost:".concat(port, "\n  ############################################\n  "));
 });

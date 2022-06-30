@@ -41,8 +41,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getMetadata = exports.resizeImage = void 0;
 var sharp_1 = __importDefault(require("sharp"));
-var imagePath = '/Users/jaytheb/FSD/full/';
-var thumbNail = '/Users/jaytheb/FSD/thumb/';
+var imagePath = '/Users/jaytheb/FSD/Image Process API/full/';
+var thumbNail = '/Users/jaytheb/FSD/Image Process API/thumb/';
 function getMetadata(name) {
     return __awaiter(this, void 0, void 0, function () {
         var metadata, error_1;
@@ -66,25 +66,32 @@ function getMetadata(name) {
 exports.getMetadata = getMetadata;
 function resizeImage(w, h, name) {
     return __awaiter(this, void 0, void 0, function () {
-        var error_2;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
+        var _a, error_2;
+        return __generator(this, function (_b) {
+            switch (_b.label) {
                 case 0:
-                    _a.trys.push([0, 2, , 3]);
+                    _b.trys.push([0, 5, , 6]);
+                    _b.label = 1;
+                case 1:
+                    _b.trys.push([1, 2, , 4]);
+                    return [2 /*return*/, true];
+                case 2:
+                    _a = _b.sent();
                     return [4 /*yield*/, (0, sharp_1.default)(imagePath + name + '.png')
                             .resize({
                             width: w,
                             height: h,
                         })
-                            .toFile(thumbNail + name + '_thumb.png')];
-                case 1:
-                    _a.sent();
+                            .toFile(thumbNail + name + '_' + w + '_' + h + '.png')];
+                case 3:
+                    _b.sent();
                     return [2 /*return*/, true];
-                case 2:
-                    error_2 = _a.sent();
+                case 4: return [3 /*break*/, 6];
+                case 5:
+                    error_2 = _b.sent();
                     console.log(error_2);
-                    return [3 /*break*/, 3];
-                case 3: return [2 /*return*/];
+                    return [3 /*break*/, 6];
+                case 6: return [2 /*return*/];
             }
         });
     });

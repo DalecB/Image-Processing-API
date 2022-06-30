@@ -48,7 +48,7 @@ describe('1. Test endpoint response', function () {
         var response;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, request.get('/image?filename=Yumi&width=500&height=500')];
+                case 0: return [4 /*yield*/, request.get('/image?filename=yumi&width=500&height=500')];
                 case 1:
                     response = _a.sent();
                     expect(response.status).toBe(200);
@@ -62,7 +62,7 @@ describe('2. Image Transform function should resolve or reject', function () {
         var transform;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, (0, getImage_1.resizeImage)(400, 400, 'Yumi')];
+                case 0: return [4 /*yield*/, (0, getImage_1.resizeImage)(400, 400, 'yumi')];
                 case 1:
                     transform = _a.sent();
                     expect(transform).toBeTrue();
