@@ -20,7 +20,7 @@ app.get('/image', async (req, res) => {
   }
   try {
     const image = await fs.open(imagePath + name + '_' + width + '_' + height + '.png', 'r');
-    console.log(image)
+    // console.log(image)
     res.sendFile(imagePath + name + '_' + width + '_' + height + '.png');
   } catch {
     await resizeImage(width, height, name);
