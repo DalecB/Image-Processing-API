@@ -42,7 +42,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.app = void 0;
 var express_1 = __importDefault(require("express"));
 var getImage_1 = require("./utilities/getImage");
-var imagePath = '/Users/jaytheb/FSD/Image Process API/thumb/';
+var fs_1 = require("fs");
+var path_1 = __importDefault(require("path"));
+var imagePath = path_1.default.join(__dirname, '../thumb/');
 var app = (0, express_1.default)();
 exports.app = app;
 var port = 3000;
@@ -61,9 +63,9 @@ app.get('/meta', function (req, res) { return __awaiter(void 0, void 0, void 0, 
     });
 }); });
 app.get('/image', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var width, height, name;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
+    var width, height, name, image, _a;
+    return __generator(this, function (_b) {
+        switch (_b.label) {
             case 0:
                 width = parseInt(String(req.query.width));
                 height = parseInt(String(req.query.height));
@@ -71,11 +73,23 @@ app.get('/image', function (req, res) { return __awaiter(void 0, void 0, void 0,
                 if (isNaN(width) || isNaN(height)) {
                     // todo return 404 or 500 or any else
                 }
-                return [4 /*yield*/, (0, getImage_1.resizeImage)(width, height, name)];
+                _b.label = 1;
             case 1:
-                _a.sent();
+                _b.trys.push([1, 3, , 5]);
+                return [4 /*yield*/, fs_1.promises.open(imagePath + name + '_' + width + '_' + height + '.png', 'r')];
+            case 2:
+                image = _b.sent();
+                // console.log(image)
+                res.sendFile(String(image));
+                return [3 /*break*/, 5];
+            case 3:
+                _a = _b.sent();
+                return [4 /*yield*/, (0, getImage_1.resizeImage)(width, height, name)];
+            case 4:
+                _b.sent();
                 res.sendFile(imagePath + name + '_' + width + '_' + height + '.png');
-                return [2 /*return*/];
+                return [3 /*break*/, 5];
+            case 5: return [2 /*return*/];
         }
     });
 }); });

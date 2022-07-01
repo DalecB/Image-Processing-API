@@ -62,7 +62,7 @@ describe('2. Image Transform function should resolve or reject', function () {
         var transform;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, (0, getImage_1.resizeImage)(400, 400, 'yumi')];
+                case 0: return [4 /*yield*/, (0, getImage_1.resizeImage)(400, 1, 'yumi')];
                 case 1:
                     transform = _a.sent();
                     expect(transform).toBeTrue();
