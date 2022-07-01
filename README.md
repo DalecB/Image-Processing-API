@@ -15,7 +15,8 @@ $ npm run start
 
 ## Emdpoints
 ### 1. localhost:3000/image?filename=yumi&width=500&height=500  
--> You can check transformed image on "thumb" folder
+\rightarrow You can check transformed image on "thumb" folder
 ### 2. localhost:3000/meta?filename=yumi  
--> It should show you the metadata of image
+\rightarrow It should show you the metadata of image
 
+\Rightarrow COMMENTED WHICH ONE HAVE BEEN MODIFIED

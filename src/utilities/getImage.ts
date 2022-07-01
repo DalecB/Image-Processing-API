@@ -1,6 +1,7 @@
 import sharp from 'sharp';
 import path from 'path';
 
+// Changed path from absolute to relative
 const imagePath = path.join(__dirname, '../../full/');
 const thumbNail = path.join(__dirname, '../../thumb/');
 
